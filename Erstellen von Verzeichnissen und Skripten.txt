@@ -1,0 +1,88 @@
+ssh ec2-user@linux.itcareerhub.de
+cd /opt/090924-wdm/Kvitka/
+
+Создание двух директорий
+mkdir /opt/090924-wdm/Kvitka/dir1 /opt/090924-wdm/Kvitka/dir2
+
+Создание скрипта для генерации файлов
+nano /opt/090924-wdm/Kvitka/create_files.sh
+
+Код для создания файлов
+
+Это цикл for, который повторяется 100 раз. Переменная i принимает значения от 1 до 100.
+for i in {1..100}; do 
+ 
+$RANDOM — это встроенная переменная в Bash, которая генерирует случайное число каждый раз, когда к ней обращаются. Это число присваивается переменной filename.
+filename=$RANDOM 
+
+Команда touch создает пустой файл с именем, указанным в переменной filename, в директории /opt/090924-wdm/Kvitka/dir1/.
+touch /opt/090924-wdm/Kvitka/dir1/$filename 
+
+Завершает цикл for.
+done
+
+
+chmod +x create_files.sh
+./create_files.sh
+Эта команда показывает содержимое директории dir1, где должны находиться созданные файлы.
+ls /opt/090924-wdm/Kvitka/dir1
+
+Написание скрипта для перемещения файлов
+nanov move_files.sh
+
+DIR1 и DIR2: Указываем директории, в которых хранятся исходные файлы и куда будут перемещаться файлы соответственно.
+ DIR1="/opt/090924-wdm/Kvitka/dir1"
+ DIR2="/opt/090924-wdm/Kvitka/dir2"
+
+Цикл for проходит по каждому файлу в директории DIR1. * означает, что цикл обрабатывает все файлы в директории.
+for file in $DIR1/*; do
+
+basename "$file": Эта команда извлекает имя файла из полного пути. Например, если file равен /opt/090924-wdm/Kvitka/dir1/12345, то basename "$file" вернет 12345.
+     filename=$(basename "$file")
+ 
+Проверяет, состоит ли имя файла только из цифр. Регулярное выражение ^[0-9]+$ означает "начинается с цифры и содержит только цифры".
+     if [[ $filename =~ ^[0-9]+$ ]]; then
+
+Проверяет, является ли число четным. Оператор % вычисляет остаток от деления на 2. Если остаток равен 0, число четное.
+        if (( $filename % 2 == 0 )); then
+          
+Перемещает файл из директории DIR1 в директорию DIR2.
+ mv "$file" "$DIR2/"
+
+- `fi`: Закрывает условные блоки `if`.
+        fi
+     fi
+
+- `done`: Завершает цикл `for`.
+ done
+
+Ваш скрипт выполняет следующие действия: 1. Проходит по всем файлам в директории `DIR1`. 
+2. Проверяет, состоит ли имя каждого файла только из цифр. 
+3. Если имя файла состоит из цифр, проверяет, является ли число четным. 
+4. Если число четное, перемещает файл в директорию `DIR2`
+
+
+
+scp ec2-user@linux.itcareerhub.de:/opt/090924-wdm/Kvitka/create_files.sh /c/Users/ICH/Desktop/Linux/HW20/
+$ scp ec2-user@linux.itcareerhub.de:/opt/090924-wdm/Kvitka/move_files.sh /c/Users/ICH/Desktop/Linux/HW20/
+
+
+
+
+
+
+
+
+
+
+
+
+history >> file.txt 
+  export_file file.txt 
+
+
+cat myfirstbashscript.sh >> 06_11.txt
+localhost:~# export_file 06_11.txt
+
+
+scp ec2-user@linux.itcareerhub.de:/opt/090924-wdm/Kvitka/homework/12.11.txt C:\Users\ICH\Desktop\Linux 
