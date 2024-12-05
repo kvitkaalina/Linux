@@ -6,6 +6,7 @@ git init
 
 git add .
 
+<<<<<<< HEAD
 Создайте коммит с сообщением:
 git commit -m "Добавлена папка Weitere Informationen и файл Erstellen von Verzeichnissen und Skripten.txt"
 
@@ -39,3 +40,17 @@ git commit -m "Добавлена папка Weitere Informationen и файл E
 
 
 git push origin main
+=======
+
+git commit -m "Добавлена папка Weitere Informationen и файл Erstellen von Verzeichnissen und Skripten.txt"
+
+
+
+git remote add origin git@github.com:kvitkaalina/Linux.git
+
+
+
+git branch -M main
+
+git push -u origin main
+>>>>>>> 7ac6a107dec12143855c1557fdea196819d7d7d5
