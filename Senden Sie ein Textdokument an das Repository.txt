@@ -1,0 +1,41 @@
+cd '/c/Users/ICH/Desktop/Linux/Weitere Informationen'
+
+
+git init
+
+
+git add .
+
+Создайте коммит с сообщением:
+git commit -m "Добавлена папка Weitere Informationen и файл Erstellen von Verzeichnissen und Skripten.txt"
+
+Добавьте удаленный репозиторий (если еще не сделано):git branch -M main
+git remote add origin git@github.com:kvitkaalina/Linux.git
+
+
+Переименуйте текущую ветку в main (если необходимо):
+git branch -M main
+
+
+Отправьте изменения в удаленный репозиторий:
+git push -u origin main
+
+
+2
+
+git clone git@github.com:kvitkaalina/Linux.git
+
+
+cd Linux
+
+копируем все
+cp -r /c/Users/ICH/Desktop/Linux/Weitere Informationen .
+
+
+git add .
+
+
+git commit -m "Добавлена папка Weitere Informationen и файл Erstellen von Verzeichnissen und Skripten.txt"
+
+
+git push origin main

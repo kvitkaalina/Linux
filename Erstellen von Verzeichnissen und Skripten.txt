@@ -64,7 +64,7 @@ basename "$file": Эта команда извлекает имя файла и�
 
 
 scp ec2-user@linux.itcareerhub.de:/opt/090924-wdm/Kvitka/create_files.sh /c/Users/ICH/Desktop/Linux/HW20/
-$ scp ec2-user@linux.itcareerhub.de:/opt/090924-wdm/Kvitka/move_files.sh /c/Users/ICH/Desktop/Linux/HW20/
+scp ec2-user@linux.itcareerhub.de:/opt/090924-wdm/Kvitka/move_files.sh /c/Users/ICH/Desktop/Linux/HW20/
 
 
 
